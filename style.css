@@ -20,7 +20,7 @@ div.container {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 320px;
     width: 180px;
     gap: 15px;
 }
@@ -40,7 +40,6 @@ div.buttons {
 
 div.row {
     display: flex;
-    gap: ;
     width: 180px;
     justify-content: space-between;
 }
