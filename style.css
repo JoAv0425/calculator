@@ -12,29 +12,41 @@ body {
     min-height: 100vh;
 }
 div.frame {
-    
+    border: 2px solid black;
+    border-radius: 15px;
 }
 
 div.container {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    height: 200px;
-    width: 60px;
+    height: 350px;
+    width: 180px;
+    gap: 15px;
 }
 
 div.display {
     border: 2px solid black;
-    height: 30px;
-    width: 70px;
+    height: 90px;
+    width: 180px;
+    border-radius: 10px;
 }
 
 div.buttons {
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 div.row {
     display: flex;
-    gap: 5px;
+    gap: ;
+    width: 180px;
+    justify-content: space-between;
+}
+
+button {
+    font-size: 30px;
+    width: 50px;
+    border-radius: 30px;
 }
