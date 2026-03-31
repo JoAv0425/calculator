@@ -15,27 +15,28 @@ function divide(a,b) {
 };
 
 
+
 let firstNum = '';
 let secondNum = '';
 let operator = '';
 
 function operate(operator,firstNum,secondNum) {
     if (operator == "+") {
-        +firstNum;
-        +secondNum;
-        add(firstNum,secondNum);
+        let first = +firstNum;
+        let second = +secondNum;
+        return add(first,second);
     } else if (operator == "-") {
-        +firstNum;
-        +secondNum;
-        subtract(firstNum,secondNum);
+        let first = +firstNum;
+        let second = +secondNum;
+        return subtract(first,second);
     } else if (operator == "×") {
-        +firstNum;
-        +secondNum;
-        multiply(firstNum,secondNum);
+        let first = +firstNum;
+        let second = +secondNum;
+        return multiply(first,second);
     } else if (operator == "÷") {
-        +firstNum;
-        +secondNum;
-        divide(firstNum,secondNum);
+        let first = +firstNum;
+        let second = +secondNum;
+        return divide(first,second);
     }
 };
 
@@ -57,6 +58,11 @@ function updateVariables(e) {
     ) {
         operator = e.target.value;
         display.textContent = `${firstNum} ${operator}`;
+    } else if (e.target.value == "=") {       
+        const resultText = document.createElement("div");
+        resultText.className = "result-text";
+        resultText.textContent = `${operate(operator,firstNum,secondNum)}`;
+        display.appendChild(resultText);
     }
 
 }
