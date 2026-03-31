@@ -42,14 +42,14 @@ function operate(operator,firstNum,secondNum) {
 const display = document.querySelector("div.display");
 const allBtns = document.querySelector(".buttons")
 function updateVariables(e) {
-    if (operator & firstNum & !isNaN(e.target.value)) {
+    if (operator && firstNum && !isNaN(e.target.value)) {
         secondNum += e.target.value;
         display.textContent = `${firstNum} ${operator} ${secondNum}`;
     } else if (!isNaN(e.target.value)) {
         firstNum += e.target.value;
         display.textContent = `${firstNum}`
-    } else if (e.target.value = '-'
-        || e.target.value == '+'
+    } else if (e.target.value == '+'
+        || e.target.value == '-'
         || e.target.value == "×"
         || e.target.value == "÷"
     ) {
