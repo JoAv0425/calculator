@@ -51,12 +51,20 @@ function updateVariables(e) {
         || e.target.value == ".") {
         firstNum += e.target.value;
         display.textContent = `${firstNum}`
-    } else if (e.target.value == '+'
+    } else if (!operator && (e.target.value == '+'
         || e.target.value == '-'
         || e.target.value == "×"
         || e.target.value == "÷"
-    ) {
+    )) {
         operator = e.target.value;
+        display.textContent = `${firstNum} ${operator}`;
+    } else if (operator && (e.target.value == '+'
+        || e.target.value == '-'
+        || e.target.value == "×"
+        || e.target.value == "÷")) {
+        operator = e.target.value;
+        firstNum = operate(operator,firstNum,secondNum);
+        secondNum = '';
         display.textContent = `${firstNum} ${operator}`;
     } else if (e.target.value == "=") {       
         const resultText = document.createElement("div");
