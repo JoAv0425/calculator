@@ -62,8 +62,8 @@ function updateVariables(e) {
         || e.target.value == '-'
         || e.target.value == "×"
         || e.target.value == "÷")) {
-        operator = e.target.value;
         firstNum = operate(operator,firstNum,secondNum);
+        operator = e.target.value;
         secondNum = '';
         display.textContent = `${firstNum} ${operator}`;
     } else if (e.target.value == "=") {       
@@ -71,6 +71,12 @@ function updateVariables(e) {
         resultText.className = "result-text";
         resultText.textContent = `${operate(operator,firstNum,secondNum)}`;
         display.appendChild(resultText);
+    } else if (e.target.value == 'clear') {
+        firstNum = '';
+        secondNum = '';
+        operator = '';
+        display.textContent = '';
+        resultText.textContent = '';
     }
 
 }
