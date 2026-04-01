@@ -41,9 +41,19 @@ function operate(operator,firstNum,secondNum) {
 };
 
 const display = document.querySelector("div.display");
-const allBtns = document.querySelector(".buttons")
+const allBtns = document.querySelector(".buttons");
+const resultText = document.createElement("div");
+resultText.className = "result-text";
+const backSp = document.querySelector("button.back-space")
 function updateVariables(e) {
-    if (operator && firstNum && (!isNaN(e.target.value) 
+    if (resultText.textContent) {
+        display.textContent = '';
+        resultText.textContent = '';
+        firstNum = '';
+        secondNum = '';
+        operator = '';
+        firstNum += e.target.value;
+    } else if (operator && firstNum && (!isNaN(e.target.value) 
         || e.target.value == ".")) {
         secondNum += e.target.value;
         display.textContent = `${firstNum} ${operator} ${secondNum}`;
@@ -67,8 +77,6 @@ function updateVariables(e) {
         secondNum = '';
         display.textContent = `${firstNum} ${operator}`;
     } else if (e.target.value == "=") {       
-        const resultText = document.createElement("div");
-        resultText.className = "result-text";
         resultText.textContent = `${operate(operator,firstNum,secondNum)}`;
         display.appendChild(resultText);
     } else if (e.target.value == 'clear') {
@@ -77,7 +85,20 @@ function updateVariables(e) {
         operator = '';
         display.textContent = '';
         resultText.textContent = '';
+    
     }
 
 }
 allBtns.addEventListener('click', updateVariables);
+
+function backSpace(e) {
+    if (secondNum) {
+        secondNum = secondNum.slice(0,-1);
+    } else if (operator && !secondNum) {
+        operator = '';
+    } else if (firstNum && !operator && !secondNum) {
+        firstNum = firstNum.slice(0,-1);
+    }
+}
+
+backSp.addEventListener("click", backSpace);
