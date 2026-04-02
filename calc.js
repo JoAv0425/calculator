@@ -44,7 +44,8 @@ const display = document.querySelector("div.display");
 const allBtns = document.querySelector(".buttons");
 const resultText = document.createElement("div");
 resultText.className = "result-text";
-const backSp = document.querySelector("button.back-space")
+const backSp = document.querySelector("button.back-space");
+const decimalP = document.querySelector('button.decimal-point');
 function updateVariables(e) {
     if (resultText.textContent && (!isNaN(e.target.value))) {
         secondNum = '';
@@ -52,7 +53,6 @@ function updateVariables(e) {
         firstNum = e.target.value;
         display.textContent = `${firstNum}`;
         resultText.textContent = '';
-      
     } else if (operator && firstNum && (!isNaN(e.target.value) 
         || e.target.value == ".")) {
         secondNum += e.target.value;
@@ -106,3 +106,13 @@ function backSpace(e) {
 }
 
 backSp.addEventListener("click", backSpace);
+
+/*function decimalPoint(e) {
+    if (secondNum.includes('.')) {
+        secondNum = secondNum.slice(0,-1);
+    } else if (firstNum.includes('.') && !secondNum) {
+        firstNum = firstNum.slice(0,-1);
+    }
+}
+
+decimalP.addEventListener("click", decimalPoint);*/
