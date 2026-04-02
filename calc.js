@@ -7,11 +7,11 @@ function subtract(a,b) {
 };
 
 function multiply(a,b) {
-    return a * b;
+     return (Math.round((a * b) * 1000) / 1000);
 };
 
 function divide(a,b) {
-    return a / b;
+    return (Math.round((a / b) * 1000) / 1000);
 };
 
 
@@ -46,7 +46,7 @@ const resultText = document.createElement("div");
 resultText.className = "result-text";
 const backSp = document.querySelector("button.back-space")
 function updateVariables(e) {
-    if (resultText.textContent) {
+    if (resultText.textContent && (!isNaN(e.target.value))) {
         secondNum = '';
         operator = '';
         firstNum = e.target.value;
@@ -61,7 +61,7 @@ function updateVariables(e) {
         || e.target.value == ".") {
         firstNum += e.target.value;
         display.textContent = `${firstNum}`
-    } else if (!operator && (e.target.value == '+'
+    } else if (!operator && firstNum && (e.target.value == '+'
         || e.target.value == '-'
         || e.target.value == "×"
         || e.target.value == "÷"
@@ -76,9 +76,13 @@ function updateVariables(e) {
         operator = e.target.value;
         secondNum = '';
         display.textContent = `${firstNum} ${operator}`;
-    } else if (e.target.value == "=") {       
+    } else if (secondNum == '0' && e.target.value == '=') {
+        resultText.textContent = 'ZeRo ErRoR';
+        display.appendChild(resultText);
+    } else if (display.textContent != '' && e.target.value == "=") {       
         resultText.textContent = `${operate(operator,firstNum,secondNum)}`;
         display.appendChild(resultText);
+
     } else if (e.target.value == 'clear') {
         firstNum = '';
         secondNum = '';
