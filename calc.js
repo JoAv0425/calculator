@@ -47,12 +47,12 @@ resultText.className = "result-text";
 const backSp = document.querySelector("button.back-space")
 function updateVariables(e) {
     if (resultText.textContent) {
-        display.textContent = '';
-        resultText.textContent = '';
-        firstNum = '';
         secondNum = '';
         operator = '';
-        firstNum += e.target.value;
+        firstNum = e.target.value;
+        display.textContent = `${firstNum}`;
+        resultText.textContent = '';
+      
     } else if (operator && firstNum && (!isNaN(e.target.value) 
         || e.target.value == ".")) {
         secondNum += e.target.value;
