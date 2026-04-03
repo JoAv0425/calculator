@@ -1,9 +1,9 @@
 function add(a,b) {
-    return a + b;
+    return (Math.round((a + b) * 1000) / 1000);;
 };
 
 function subtract(a,b) {
-    return a - b;
+    return (Math.round((a - b) * 1000) / 1000);;
 };
 
 function multiply(a,b) {
@@ -76,6 +76,9 @@ function updateVariables(e) {
         operator = e.target.value;
         secondNum = '';
         display.textContent = `${firstNum} ${operator}`;
+    } else if (firstNum && !secondNum && e.target.value == '=') {
+        resultText.textContent = `${firstNum}`;
+        display.appendChild(resultText);
     } else if (secondNum == '0' && e.target.value == '=') {
         resultText.textContent = 'ZeRo ErRoR';
         display.appendChild(resultText);
@@ -107,12 +110,16 @@ function backSpace(e) {
 
 backSp.addEventListener("click", backSpace);
 
-/*function decimalPoint(e) {
-    if (secondNum.includes('.')) {
-        secondNum = secondNum.slice(0,-1);
-    } else if (firstNum.includes('.') && !secondNum) {
-        firstNum = firstNum.slice(0,-1);
-    }
+function decimalPoint(e) {
+    if (secondNum && !secondNum.includes('.')) {
+        decimalP.disabled = false;
+    } else if (secondNum.includes('.')) {
+        decimalP.disabled = true;
+    } else if (!secondNum && !firstNum.includes('.')) {
+        decimalP.disabled = false;
+    } else if (!secondNum && firstNum.includes('.')) {
+        decimalP.disabled = true;
+    } else decimalP.disabled = true;
 }
 
-decimalP.addEventListener("click", decimalPoint);*/
+allBtns.addEventListener("click", decimalPoint);
