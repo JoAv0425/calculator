@@ -58,12 +58,3 @@ button {
     align-self: flex-end;
     
 }
-button:disabled {
-    background-color: #f0f0f0; /* Your specific gray */
-    color: black;              /* Your specific text color */
-    border: 2px solid black;    /* Your specific border */
-    opacity: 1;                /* Prevents the 'faded' look */
-    cursor: default;
-    filter: none;            
-    -webkit-appearance: none;
-}

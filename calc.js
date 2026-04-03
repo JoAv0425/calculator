@@ -112,14 +112,14 @@ backSp.addEventListener("click", backSpace);
 
 function decimalPoint(e) {
     if (secondNum && !secondNum.includes('.')) {
-        decimalP.disabled = false;
+        decimalP.value = '.'
     } else if (secondNum.includes('.')) {
-        decimalP.disabled = true;
+        decimalP.value = '';
     } else if (!secondNum && !firstNum.includes('.')) {
-        decimalP.disabled = false;
+        decimalP.value = '.';
     } else if (!secondNum && firstNum.includes('.')) {
-        decimalP.disabled = true;
-    } else decimalP.disabled = true;
+        decimalP.value = '';
+    } else decimalP.value = '';
 }
 
 allBtns.addEventListener("click", decimalPoint);
