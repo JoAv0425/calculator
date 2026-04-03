@@ -35,6 +35,12 @@ div.display {
     flex-direction: column;
     gap: 35px;
     font-size: 18px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    background-color: #9ea78d;
+    color: #2b3024;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.2)
+    
 }
 
 div.buttons {
