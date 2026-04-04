@@ -10,6 +10,8 @@ body {
     justify-content: center;
     margin: 0;
     min-height: 100vh;
+    background-color: rgba(245, 245, 220, 0.281);
+    flex-direction: column;
 }
 div.frame {
     border: 3px solid black;
@@ -71,4 +73,9 @@ button {
 button.equals {
     color: black ;
     background-color: #ff7b00;
+}
+div.who {
+    margin-top: 10px;
+    font-weight: 300;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
